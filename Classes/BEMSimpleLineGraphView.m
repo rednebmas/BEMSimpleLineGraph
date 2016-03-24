@@ -941,6 +941,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         if ([self.delegate respondsToSelector:@selector(baseValueForYAxisOnLineGraph:)] && [self.delegate respondsToSelector:@selector(incrementValueForYAxisOnLineGraph:)]) {
             CGFloat baseValue = [self.delegate baseValueForYAxisOnLineGraph:self];
             CGFloat increment = [self.delegate incrementValueForYAxisOnLineGraph:self];
+            CGFloat maxValue  = [self.delegate maxValueForLineGraph:self];
             
             float yAxisPosition = baseValue;
             if (baseValue + increment * 100 < maximumValue.doubleValue) {
@@ -948,7 +949,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                 return;
             }
             
-            while(yAxisPosition < maximumValue.floatValue + increment) {
+            while(yAxisPosition < maxValue) {
                 [dotValues addObject:@(yAxisPosition)];
                 yAxisPosition += increment;
             }
