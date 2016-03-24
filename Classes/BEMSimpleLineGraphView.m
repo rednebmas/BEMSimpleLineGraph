@@ -1422,7 +1422,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     if (!self.usingCustomPopupView) {
         [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.popUpView.alpha = 0.7;
+            // self.popUpView.alpha = 0.7;
             self.popUpLabel.alpha = 1;
         } completion:nil];
         NSString *prefix = @"";
